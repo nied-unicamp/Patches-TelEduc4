@@ -3,4 +3,7 @@ copy:
 	cp unsafe_install.sh ~/public_html
 
 run: copy
-	sudo bash ~/public_html/atualizador43to44.sh
+	$here=$(pwd)
+	cd ~/public_html
+	sudo bash atualizador43to44.sh
+	cd $here
