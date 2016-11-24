@@ -8,3 +8,5 @@ run: copy
 	cd ~/public_html; \
 	pwd; \
 	sudo bash atualizador43to44.sh;
+clean:
+	rm -rf *~
