@@ -101,7 +101,7 @@ while [  "$ANSWER" != "1" ] && [ "$ANSWER" != "2" ]; do
 	echo "Resposta invalida"
     fi
     echo "Por favor escolha uma opcao.
-	1 - Atualizar o TelEduc instalado na pasta atual para a versao 2.4.
+	1 - Atualizar o TelEduc instalado na pasta atual para a versao 4.4.
 
 	2 - Sair"
 
@@ -111,7 +111,6 @@ while [  "$ANSWER" != "1" ] && [ "$ANSWER" != "2" ]; do
 	#executar script de instalacao
 	sudo bash update_install.sh
 
-	
 	
     elif [ "$ANSWER" == "2" ]; then
 	exit
