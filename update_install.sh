@@ -59,17 +59,17 @@ cd ..
 # Ajusta permissoes antes de instalar.
 chmod -v 755 teleduc
 chmod -v 775 teleduc/config
-chmod -v 700 teleduc/config/teleduc.inc
+
 
 if [ "$so" == "ubuntu" ] || [ "$so" == "debian" ]; then
-	chown -v www-data:www-data teleduc/config/teleduc.inc
+        #chown -v www-data:www-data teleduc/config/teleduc.inc
 	chown -v www-data:www-data teleduc
 	chown -v www-data:www-data teleduc/webdriver/cursos/aplic/bibliotecas
 	chown -v www-data:www-data teleduc/webdriver/cursos/diretorio
 	chown -Rv www-data:www-data teleduc/webdriver/instalacao
 	chown -Rv www-data:www-data teleduc/config
 elif [ "$so" == "fedora" ] || [ "$so" == "centos" ]; then
-	chown -v apache:apache teleduc/config/teleduc.inc
+	#chown -v apache:apache teleduc/config/teleduc.inc
 	chown -v apache:apache teleduc
 	chown -v apache:apache teleduc/webdriver/cursos/aplic/bibliotecas
 	chown -v apache:apache teleduc/webdriver/cursos/diretorio
@@ -115,6 +115,16 @@ cp -rp ./$old/cursos/diretorio $THIS_FOLDER/cursos
 	# Executar recria_links.sh
 
 cp -p ./$old/cursos/aplic/bibliotecas/teleduc.inc ./config
+
+chmod -v 700 teleduc/config/teleduc.inc
+
+
+if [ "$so" == "ubuntu" ] || [ "$so" == "debian" ]; then
+        chown -v www-data:www-data teleduc/config/teleduc.inc
+    
+elif [ "$so" == "fedora" ] || [ "$so" == "centos" ]; then
+        chown -v apache:apache teleduc/config/teleduc.inc
+fi
 
 # Remove os itens da pasta instalacao um a um.
 # Eh feito assim para nao apagar os arquivos de anexos caso eles estejam na pasta instalacao.
